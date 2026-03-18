@@ -1,0 +1,23 @@
+  --- a/keystatic.config.ts
+  +++ b/keystatic.config.ts
+  @@ -12,7 +12,7 @@ export default defineConfig({
+     root: './src',
+     srcDir: 'content',
+  -  locales: ['en', 'it'],
+  +  locales: ['en', 'de'],
+     // ...other configuration
+   })
+
+  --- a/src/lib/localization-helpers.ts
+  +++ b/src/lib/localization-helpers.ts
+  @@ -1,4 +1,4 @@
+  -export function getPagePath(locale: string, slug: string): string {
+  -  return `/pages/${locale}/${slug}`;
+  +export function getPagePath(locale: string, slug: string): string {
+  +  return `/pages/${locale}/${slug}`;
+   }
+
+  -export function getAssetPath(locale: string, path: string): string {
+  -  return `/global/${locale}/${path}`;
+  +export function getAssetPath(locale: string, path: string): string {
+  +  return `/global/${locale}/${path}`;
