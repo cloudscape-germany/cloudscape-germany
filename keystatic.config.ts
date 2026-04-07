@@ -149,7 +149,7 @@ export default config({
 		pages: collection({
 			label: "Pages",
 			slugField: "title",
-			path: "src/content/pages/it/*",
+			path: "src/content/pages/de/*",
 			entryLayout: "content",
 			columns: ["title", "lastUpdateDate"],
 			previewUrl: "/{slug}",
@@ -634,7 +634,7 @@ export default config({
 		posts: collection({
 			label: "Posts",
 			slugField: "title",
-			path: "src/content/posts/it/*",
+			path: "src/content/posts/de/*",
 			entryLayout: "content",
 			columns: ["title", "lastUpdateDate"],
 			previewUrl: "/post/{slug}",
@@ -717,7 +717,7 @@ export default config({
 		works: collection({
 			label: "Works",
 			slugField: "title",
-			path: "src/content/works/it/*",
+			path: "src/content/works/de/*",
 			entryLayout: "content",
 			columns: ["title", "lastUpdateDate"],
 			previewUrl: "/works/{slug}",

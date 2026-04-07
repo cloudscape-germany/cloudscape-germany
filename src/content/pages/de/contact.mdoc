@@ -1,0 +1,26 @@
+---
+title: Kontakt
+type: informational
+lastUpdateDate: 2026-04-03
+hideTitle: false
+seo:
+  title: "Kontaktieren Sie uns: Treten Sie in Kontakt für sichere und microservice-basierte Cloud-Infrastrukturen"
+  description: "Nehmen Sie Kontakt mit Cloudscape Germany auf für Expertenberatung zu Cloud-Infrastrukturen und Fullstack-Entwicklungsdienstleistungen. Tauschen Sie sich mit uns über Ihr Projekt aus und erkunden Sie dezentrale Cloud-Lösungen."
+  author: Ihr Unternehmen
+---
+
+{% Container %}
+
+{% Contact
+  title="Kontakt aufnehmen"
+  fields=[
+    {title: "Vollständiger Name", placeholder: "Max Mustermann", required: true, type: "text"},
+    {title: "E-Mail-Adresse", placeholder: "ihre@email.de", required: true, type: "email"},
+    {title: "Telefon", placeholder: "+49 1234 55 66 777", type: "tel"},
+    {title: "Zeitfenster für Rückruf", placeholder: "10:00 Uhr bis 16:00 Uhr", type: "text"},
+    {title: "Nachricht", placeholder: "Geben Sie hier Ihre Nachricht ein", type: "textarea", width: 2},
+    {title: "Kontaktieren Sie uns", type: "submit", width: 2}
+  ]
+/%}
+
+{% /Container %}

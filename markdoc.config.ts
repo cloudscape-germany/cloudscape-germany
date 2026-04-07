@@ -96,7 +96,7 @@ export default defineMarkdocConfig({
 		},
 		Testimonial: {
 			attributes: {
-				testimonial: { type: String, render: "testimonial", required: true },
+				testimonial: { type: String, render: "testimonial", required: true},
 				name: { type: String, render: "name", required: true },
 			},
 			render: component("./src/components/sections/Testimonial.astro"),

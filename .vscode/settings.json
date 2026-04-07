@@ -52,7 +52,7 @@
 	"tailwindCSS.emmetCompletions": true,
 	"tailwindCSS.validate": true,
 	"tailwindCSS.classAttributes": ["class", "className", "ngClass", "class:list"],
-	"cSpell.language": "en,it",
+	"cSpell.language": "en,de",
 	"cSpell.diagnosticLevel": "Information",
 	"[astro]": {
 		"editor.defaultFormatter": "astro-build.astro-vscode"

@@ -8,19 +8,19 @@
 			"link": "/"
 		},
 		{
-			"title": "Chi siamo",
+			"title": "Über uns",
 			"link": "/about"
 		},
 		{
-			"title": "Portfolio",
+			"title": "Projekte",
 			"link": "/works"
 		},
 		{
-			"title": "News",
+			"title": "Neues",
 			"link": "/news"
 		},
 		{
-			"title": "Contatti",
+			"title": "Kontakt",
 			"link": "/contact"
 		}
 	],
