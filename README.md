@@ -4,7 +4,7 @@
 <a href="https://tailwindcss.com/">![Tailwind](.github/images/tailwind-icon.png)</a>
 <a href="https://alpinejs.dev/">![Alpine js](.github/images/alpine-icon.png)</a>
 
-Mizar is a template made with [Astro](https://astro.build), [Tailwind](https://tailwindcss.com/) and [AlpineJS](https://alpinejs.dev/).
+This is a template made with [Astro](https://astro.build), [Tailwind](https://tailwindcss.com/) and [AlpineJS](https://alpinejs.dev/).
 
 This project was strongly inspired by a template found on Webflow which I can longer find, if you are the author please let me know so I can give you the credits.
 
