@@ -1,6 +1,17 @@
 ---
 import NotFound from "@/components/NotFound.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { locales, defaultLocale } from "../../site.config";
+
+// Detect locale from URL or use default
+const url = new URL(Astro.request.url);
+const pathSegments = url.pathname.split('/').filter(Boolean);
+const detectedLocale = (pathSegments[0] as any) && locales.includes(pathSegments[0])
+	? pathSegments[0]
+	: defaultLocale;
+
+// Set the locale for the layout
+Astro.locals = { ...Astro.locals, currentLocale: detectedLocale };
 ---
 
 <BaseLayout>

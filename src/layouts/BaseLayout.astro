@@ -8,15 +8,22 @@ import LoadingIndicator from "@/components/primitives/LoadingIndicator.astro";
 import Widget from "@/components/primitives/Widget.astro";
 import { getLocalizedSettings } from "@/lib/localization-helpers";
 import type { SEOProps } from "astro-seo";
-import { defaultLocale } from "@/../site.config";
+import { defaultLocale, Locale } from "@/../site.config";
 
-const currentLocale = Astro.currentLocale || defaultLocale;
 
-const { widget } = getLocalizedSettings(currentLocale);
 
 type Props = {
 	seo?: SEOProps | MinimalSeo;
 };
+
+interface Props {
+	locale?: Locale;
+}
+
+const currentLocale = Astro.currentLocale || defaultLocale;
+const { locale = Astro.currentLocale || "en" } = Astro.props;
+const settings = await getLocalizedSettings(locale);
+const { widget } = settings; // Now this won't be undefined
 
 const { seo } = Astro.props;
 ---

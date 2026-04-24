@@ -6,9 +6,17 @@ import { getLocalizedSettings } from "@/lib/localization-helpers";
 import { translatePath, unlocalizedUrl } from "@/lib/localization-helpers";
 import { defaultLocale, locales } from "site";
 
-const currentLocale = Astro.currentLocale;
+const currentLocale = Astro.currentLocale || defaultLocale;
+const localizedSettings = getLocalizedSettings(currentLocale);
 
-const { footer, contacts } = getLocalizedSettings(currentLocale);
+if (!localizedSettings) {
+	throw new Error(
+		`getLocalizedSettings returned undefined for locale: ${currentLocale}`
+	);
+}
+
+
+const { footer, contacts } = localizedSettings;
 
 function getTranslatedUrl(locale: string): string {
 	const unlocalizedPath = unlocalizedUrl(Astro.url.pathname);
