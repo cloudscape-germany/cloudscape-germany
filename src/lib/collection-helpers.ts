@@ -18,6 +18,9 @@ export async function getCollectionStaticPaths<CollectionName extends keyof Cont
 		if (collectionName === "pages") {
 			// For pages handle homepage slug
 			localizedSlug = slug[0] === "homepage" || slug[0] === "index" ? [] : slug;
+		} else {
+			// Non-default locales get prefixed with lang
+			localizedSlug = [lang, ...slug];
 		}
 
 		if (lang !== defaultLocale && !locale) {
