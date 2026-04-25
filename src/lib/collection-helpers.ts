@@ -16,10 +16,9 @@ export async function getCollectionStaticPaths(
 		let localizedSlug = slug;
 
 		if (collectionName === "pages") {
-			localizedSlug = slug[0] === "homepage" || slug[0] === "index" ? [] : slug;
-		} // else {
-		// 	localizedSlug = [lang, ...slug];
-		// }
+			if (slug[0] === "homepage" || slug[0] === "index") return null;
+			localizedSlug = slug;
+		}
 
 		if (lang !== defaultLocale && !locale) {
 			localizedSlug = [lang, ...localizedSlug];
@@ -34,7 +33,7 @@ export async function getCollectionStaticPaths(
 				data: item,
 			},
 		};
-	});
+	}).filter(Boolean);
 
 	let pathsRes = paths;
 	if (locale) {

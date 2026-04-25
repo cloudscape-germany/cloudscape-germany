@@ -1,18 +1,13 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
-import { getCollectionStaticPaths } from "../lib/collection-helpers";
-import { render } from 'astro:content';
+import { render } from "astro:content";
 
-export interface Props {
-    data: CollectionEntry<"pages">;
-}
+const pages = await getCollection("pages");
+const page = pages.find(p => p.id.includes("homepage"));
 
-export async function getStaticPaths() {
-    return getCollectionStaticPaths("pages", "de"); // ← add "de" here
-}
+if (!page) throw new Error(`Homepage not found. Available IDs: ${pages.map(p => p.id).join(", ")}`);
 
-const { data: page } = Astro.props;
 const { Content } = await render(page);
 ---
 
