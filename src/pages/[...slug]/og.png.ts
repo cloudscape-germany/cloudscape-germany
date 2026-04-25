@@ -16,5 +16,5 @@ export const GET: APIRoute<CollectionProps<"pages">> = async ({ props: { data: p
 };
 
 export async function getStaticPaths() {
-	return await getCollectionStaticPaths("pages");
+	return await getCollectionStaticPaths("pages", "de"); // ← add "de"
 }
