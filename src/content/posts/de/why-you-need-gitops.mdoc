@@ -1,87 +1,87 @@
 ---
 title: Warum Sie GitOps einführen müssen
-description: GitOps is the configuration to keep all app versions and states on any hardware, vpc or dockered swarm box in your data center consistent with enabling rollbacks.
+description: GitOps ist die Konfigurationsmethode, um alle App-Versionen und -Zustände auf beliebiger Hardware, in VPCs oder Docker-Swarm-Umgebungen in Ihrem Rechenzentrum konsistent zu halten und Rollbacks zu ermöglichen.
 category: DevOps
-author: Cloudscape Germany
+author: Cloudscape Germany (Stephan Kristyn)
 cover: '@/assets/posts/why-you-need-gitops/huge-branch.jpg'
 tags:
   - GitOps
   - Kubernetes
   - DevOps
 pubDate: 2024-05-08
-lastUpdateDate: 2026-04-02
+lastUpdateDate: 2026-04-26
 hidden: false
 ---
 
-## In a nutshell
+## Kurz zusammengefasst
 
-GitOps is the configuration to keep all app versions and states on any hardware, vpc or dockered swarm box in your data center consistent with enabling rollbacks.
+GitOps ist die Konfigurationsmethode, um alle App-Versionen und -Zustände auf beliebiger Hardware, in VPCs oder Docker-Swarm-Umgebungen in Ihrem Rechenzentrum konsistent zu halten und Rollbacks zu ermöglichen.
 
-In traditional deployments we could end up with version 1.20 of a Dashboard and version 1.19 of the underlying API, with breaking changes. In GitOps this would never happen, since the Tool is watching over the version states of the whole application domain.
+Bei herkömmlichen Deployments konnte es vorkommen, dass Version 1.20 eines Dashboards mit Version 1.19 der darunterliegenden API – mit Breaking Changes – kombiniert wurde. Mit GitOps wäre das nie passiert, da das Tool die Versionszustände der gesamten Anwendungsdomäne überwacht.
 
-This enables continuous deployment, changing the image types of containers, the cluster sees that and fixes itself into the correct state.
+Dies ermöglicht Continuous Deployment: Werden die Image-Typen von Containern geändert, erkennt der Cluster dies und korrigiert sich automatisch in den richtigen Zustand.
 
-- **Machines** - Terraform
-- **Clusters** - Kubernetes
+- **Maschinen** - Terraform
+- **Cluster** - Kubernetes
 - **Apps** - Helm/Flux
 - **Servicemesh** - Flagger
 
-> **Example**: In case your team needs to deploy a new feature that needs more resources, so the Ansible Playbook or Kube Resource definition needs adaption, then the Ops team, so four changes need to be reflected in Git only and the Watcher will either deploy **all** changes or **nothing**. Nothing will ever be half-working or half-broken.
+> **Beispiel**: Wenn Ihr Team ein neues Feature deployen muss, das mehr Ressourcen benötigt, sodass das Ansible Playbook oder die Kube-Resource-Definition angepasst werden muss, müssen die vier Änderungen des Ops-Teams nur in Git eingepflegt werden – der Watcher deployt dann entweder **alle** Änderungen oder **gar keine**. Nichts ist jemals halb funktionsfähig oder halb kaputt.
 
-Continuous Delivery by Jez Humble is a mention-worthy book. Through a computer-scientific term called *convergence*, states of containers are maintained autonomously, where nothing gets out of the desired states of ops and dev parts of the team.
+*Continuous Delivery* von Jez Humble ist ein empfehlenswertes Buch. Durch das informatische Konzept der *Konvergenz* werden Containerzustände autonom aufrechterhalten, sodass weder die Ops- noch die Dev-Seite des Teams je in einen unerwünschten Zustand gerät.
 
-### In-depth analysis of GitOps
+### GitOps im Detail
 
-With containers comes a level of agility never before experienced in the world of business. In seconds, administrators can roll out deployments for a multitude of services. And when those businesses need to scale those containers, they can turn to Docker Swarm or Kubernetes.
+Container bringen ein Maß an Agilität mit sich, das in der Geschäftswelt bisher unbekannt war. Innerhalb von Sekunden können Administratoren Deployments für eine Vielzahl von Services ausrollen. Und wenn Skalierung gefragt ist, stehen Docker Swarm oder Kubernetes bereit.
 
-But what happens when even a standard container workflow can't keep up with the ever-growing demand of business? You'd be hard-pressed to find a more efficient means of deploying and scaling a container cluster than that found in Kubernetes. And although that may very well be true, it doesn't mean the development cycle can't be improved.
+Doch was passiert, wenn selbst ein standardisierter Container-Workflow mit den wachsenden Anforderungen des Unternehmens nicht mehr mithalten kann? Kaum eine Methode ist effizienter für das Deployment und die Skalierung eines Container-Clusters als Kubernetes. Und obwohl das stimmt, bedeutet es nicht, dass der Entwicklungszyklus nicht weiter verbessert werden kann.
 
-GitOps is a method of workflow that was conceptualized by "everyone who successfully did infrastructure-as-code … is the true creator of the concept of GitOps," according to Priyanka Sharma, who is the director of technical evangelism at GitLab.
+GitOps ist eine Workflow-Methode, die – laut Priyanka Sharma, Director of Technical Evangelism bei GitLab – von „allen, die Infrastructure-as-Code erfolgreich umgesetzt haben, als wahre Schöpfer des GitOps-Konzepts" entwickelt wurde.
 
-## Enter GitOps
+## GitOps betritt die Bühne
 
-But what, exactly, is GitOps? On the surface, it is quite simple. GitOps is centered around using a version control system (such as Git) to house all information, documentation, and code for a Kubernetes deployment, and then use automated directors to deploy changes to the cluster. However, once you dig past the surface, you discover that it's far more complex than that.
+Was genau ist GitOps? Auf den ersten Blick ist es recht einfach. GitOps dreht sich darum, ein Versionskontrollsystem wie Git als zentrale Ablage für alle Informationen, Dokumentationen und den Code eines Kubernetes-Deployments zu nutzen und automatisierte Mechanismen einzusetzen, um Änderungen am Cluster auszurollen. Schaut man jedoch genauer hin, zeigt sich eine deutlich größere Komplexität.
 
-GitOps provides a way for developers to manage operational workflows, particularly for Kubernetes, using Git and their own version control system, Sharma said. The same process they use to merge code using pull requests or merge requests can be used to deploy to Kubernetes.
+GitOps bietet Entwicklern eine Möglichkeit, operative Workflows – insbesondere für Kubernetes – mithilfe von Git und dem eigenen Versionskontrollsystem zu verwalten, so Sharma. Derselbe Prozess, den sie für Code-Merges per Pull Requests oder Merge Requests nutzen, kann für Deployments auf Kubernetes verwendet werden.
 
-"For those shops doing DevOps, this approach can be appealing because it brings the workflow closer to the developer," Sharma said.
+„Für Teams, die DevOps praktizieren, kann dieser Ansatz sehr attraktiv sein, weil er den Workflow näher an den Entwickler bringt", sagte Sharma.
 
-This approach has some key benefits, she explained. Developers can use the tools they are familiar with to push code into production. "Productivity soars and DevOps actually happens," she explained, adding that "This is a core philosophy at GitLab where everything is MR-first."
+Dieser Ansatz bietet einige wesentliche Vorteile: Entwickler können die ihnen vertrauten Tools nutzen, um Code in die Produktion zu bringen. „Die Produktivität steigt sprunghaft und DevOps passiert wirklich", erklärte sie und ergänzte: „Das ist eine Kernphilosophie bei GitLab, wo alles MR-first ist."
 
-And because everything is going through the version control system, it is recorded and visible to all, Sharma said. "There is an audit trail, the ability to revert problematic changes, and ultimately a single source of truth of what is happening in the system from both, the software development and infrastructure perspective."
+Und da alles über das Versionskontrollsystem läuft, ist es für alle sichtbar und nachvollziehbar, so Sharma. „Es gibt einen Audit-Trail, die Möglichkeit, problematische Änderungen rückgängig zu machen, und letztlich eine einzige Quelle der Wahrheit über alles, was im System passiert – sowohl aus Softwareentwicklungs- als auch aus Infrastrukturperspektive."
 
-At its heart, GitOps is an operating model for Kubernetes and other cloud technologies. What sets this apart from other models is that it centralizes every aspect of the process, so that you have a singular path for managing both operations and development.
+Im Kern ist GitOps ein Betriebsmodell für Kubernetes und andere Cloud-Technologien. Was es von anderen Modellen unterscheidet, ist die Zentralisierung aller Prozessaspekte zu einem einzigen Pfad für die Verwaltung von Betrieb und Entwicklung.
 
-"One of the most important functions of GitOps is to enable a group of system changes to be applied correctly and then *verified*," said Alexis Richardson, the CEO and founder of Weaveworks who is widely credited for coining the term "GitOps" itself. "After that, GitOps should enable the users and orchestrators to be notified (alerted) if any of the systems has drifted from the correct state so that it may then be converged back to the correct desired state (which is in Git). So in GitOps, we MUST use continuous observation and verification, to enable app & cluster management."
+„Eine der wichtigsten Funktionen von GitOps ist es, eine Gruppe von Systemänderungen korrekt anzuwenden und anschließend zu *verifizieren*", sagte Alexis Richardson, CEO und Gründer von Weaveworks, dem der Begriff „GitOps" weithin zugeschrieben wird. „Danach sollte GitOps Nutzern und Orchestratoren eine Benachrichtigung (Alert) ermöglichen, wenn eines der Systeme vom korrekten Zustand abgewichen ist, damit es wieder in den gewünschten Sollzustand (der in Git hinterlegt ist) überführt werden kann. In GitOps MÜSSEN wir kontinuierliche Beobachtung und Verifikation einsetzen, um App- und Cluster-Management zu ermöglichen."
 
-[Podcast Interview with Alexis Richardson and Stefan Prodan](https://player.simplecast.com/95f629d0-623b-4fca-8843-73e9820ea895?dark=true)
+[Podcast-Interview mit Alexis Richardson und Stefan Prodan](https://player.simplecast.com/95f629d0-623b-4fca-8843-73e9820ea895?dark=true)
 
-## How Does GitOps Work?
+## Wie funktioniert GitOps?
 
-It's complicated. But let's simplify.
+Es ist komplex. Aber vereinfachen wir es.
 
-Imagine you have every single piece of documentation, all of your YAML files, and every bit of necessary code required for Kubernetes contained in a single Git repository. With the help of a few automation tools, anyone who is tasked with managing that Kubernetes deployment can do a pull request, edit the code, and then issue a merge request to that Git repository.
+Stellen Sie sich vor, jede einzelne Dokumentation, alle YAML-Dateien und jeder notwendige Code für Kubernetes befinden sich in einem einzigen Git-Repository. Mit Hilfe einiger Automatisierungstools kann jeder, der mit der Verwaltung dieses Kubernetes-Deployments beauftragt ist, einen Pull Request erstellen, den Code bearbeiten und einen Merge Request an dieses Git-Repository stellen.
 
-"If you don't have a good understanding on why Kubernetes is the priority, why it's asynchronous, why it's an even stream … if you don't understand all of that, just looking at the GitOps definition, looks like this is somehow magic," said Stefan Prodan, Weaveworks engineer.
+„Wenn man nicht versteht, warum Kubernetes die Priorität ist, warum es asynchron ist, warum es ein Event-Stream ist … wenn man das alles nicht versteht und einfach nur die GitOps-Definition liest, sieht das irgendwie wie Magie aus", sagte Stefan Prodan, Weaveworks-Ingenieur.
 
-Once the merge request is complete, the automated GitOps operator detects something has changed, another automator (like Flagger) declares the changes operational, and the change is then automatically deployed to the cluster. Here's an example of how this can function:
+Sobald der Merge Request abgeschlossen ist, erkennt der automatisierte GitOps-Operator die Änderung, ein weiterer Automatisierer (wie Flagger) erklärt die Änderungen als betriebsbereit, und die Änderung wird automatisch im Cluster deployt. Hier ein Beispiel, wie das ablaufen kann:
 
-1. Jenkins (an open source automation server) pushes a tagged image to Quay (an app registry).
-2. Jenkins pushes the config and Helm (Kubernetes manager) charts to the master Git storage bucket.
-3. An automated cloud function copies the config and Helm charts from the master Git storage bucket to the master Git repository.
-4. Flagger ensures the changes are viable.
-5. GitOps operator updates the cluster.
+1. Jenkins (ein Open-Source-Automatisierungsserver) pusht ein getaggtes Image nach Quay (eine App-Registry).
+2. Jenkins pusht die Konfiguration und Helm-Charts (Kubernetes-Manager) in den Master-Git-Storage-Bucket.
+3. Eine automatisierte Cloud-Funktion kopiert die Konfiguration und Helm-Charts vom Master-Git-Storage-Bucket in das Master-Git-Repository.
+4. Flagger stellt sicher, dass die Änderungen umsetzbar sind.
+5. Der GitOps-Operator aktualisiert den Cluster.
 
-In this workflow, automation is crucial, so to keep everything moving with a level of efficiency that cannot be matched with purely manual administration.
+In diesem Workflow ist Automatisierung entscheidend, um alles mit einer Effizienz am Laufen zu halten, die mit rein manueller Verwaltung nicht erreichbar wäre.
 
-## Why Should You Use GitOps?
+## Warum sollten Sie GitOps einsetzen?
 
-First and foremost, GitOps makes your workflow far more efficient. On top of that, using GitOps makes passing SOC 2 compliance far more cost-efficient. And on the topic of saving money, Weaveworks' Richardson has this to say:
+In erster Linie macht GitOps Ihren Workflow deutlich effizienter. Darüber hinaus gestaltet es die SOC-2-Zertifizierung erheblich kostengünstiger. Und zum Thema Kosteneinsparung hat Weaveworks' Richardson folgendes zu sagen:
 
-> Imagine a world where every time you do a deployment it's correct. And if it's not correct, then the deployment fails completely, so you can try again or make other intelligent decisions. Imagine it's correct, imagine you know it's correct and imagine you can go home and be told later if something went wrong. That is just an incredible cost-saver in operational overhead. Moving from an unsafe, semi-reliable system to one that is basically more robust."
+> Stellen Sie sich eine Welt vor, in der jedes Deployment korrekt ist. Und wenn es nicht korrekt ist, schlägt das Deployment vollständig fehl, sodass Sie es erneut versuchen oder andere fundierte Entscheidungen treffen können. Stellen Sie sich vor, es ist korrekt, Sie wissen, dass es korrekt ist, und Sie können nach Hause gehen und werden später benachrichtigt, falls etwas schiefläuft. Das ist eine unglaubliche Kostenersparnis beim operativen Aufwand. Der Wechsel von einem unsicheren, halbzuverlässigen System zu einem grundlegend robusteren ist enorm.
 
-So in the end, GitOps offers:
+Zusammenfassend bietet GitOps:
 
-- Increased productivity with continuous deployment automation.
-- Enhanced developer experience by pushing code and not containers.
-- Improved stability and reliability in development, testing and production.
+- Gesteigerte Produktivität durch automatisiertes Continuous Deployment.
+- Verbesserte Developer Experience durch das Pushen von Code statt Containern.
+- Höhere Stabilität und Zuverlässigkeit in Entwicklung, Testing und Produktion.
