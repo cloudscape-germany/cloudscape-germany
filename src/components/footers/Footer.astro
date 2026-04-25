@@ -38,7 +38,7 @@ const topInfoPages = pages
 		return {
 			...page,
 			lang: lang,
-			slug: page.slug.startsWith("/") ? page.slug : `/${page.slug}`,
+			slug: translatePath(lang, `/${slug.join("/")}`),
 		};
 	})
 	.filter(
@@ -247,13 +247,13 @@ const lastPosts = posts
 						}
 					</div>
 					<div class="flex gap-5 text-lg text-blue-700">
-						<a href="/privacy" class="inline-block max-w-full"
+						<a href={translatePath(currentLocale, '/privacy')} class="inline-block max-w-full"
 							><p
 								class="text-white border-b-2 cursor-pointer pb-1 border-white border-solid"
 							>
 								Privacy policy
 							</p></a
-						><a href="/terms" class="inline-block max-w-full"
+						><a href={translatePath(currentLocale, '/terms')} class="inline-block max-w-full"
 							><p
 								class="text-white border-b-2 cursor-pointer pb-1 border-white border-solid"
 							>

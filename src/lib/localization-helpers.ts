@@ -51,5 +51,5 @@ export function unlocalizedUrl(url: string): string {
 }
 
 export function translatePath(l: string, path: string) {
-	return l === defaultLocale ? path : `/${l}${path}`;
+	return `/${l}${path}`;
 }

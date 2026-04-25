@@ -14,13 +14,13 @@ import { defaultLocale, locales, siteTitle, siteUrl } from "./site.config";
 // https://astro.build/config
 export default defineConfig({
 	site: siteUrl,
-	output: "hybrid",
-	adapter: cloudflare({
-		imageService: "compile",
-		experimental: {
-			manualChunks: ["sharp"],
-		},
-	}),
+	output: "static",
+//	adapter: cloudflare({
+//		imageService: "compile",
+//		experimental: {
+//			manualChunks: ["sharp"],
+//		},
+//	}),
 	compressHTML: true,
 	i18n: {
 		defaultLocale: defaultLocale,
