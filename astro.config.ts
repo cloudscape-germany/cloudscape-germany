@@ -10,17 +10,13 @@ import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import { defaultLocale, locales, siteTitle, siteUrl } from "./site.config";
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
 	site: siteUrl,
 	output: "static",
-//	adapter: cloudflare({
-//		imageService: "compile",
-//		experimental: {
-//			manualChunks: ["sharp"],
-//		},
-//	}),
+	adapter: node({ mode: "standalone" }),
 	compressHTML: true,
 	i18n: {
 		defaultLocale: defaultLocale,
