@@ -26,7 +26,7 @@ export default defineConfig({
 		},
 	},
 	redirects: {
-		"/admin": "/keystatic",
+		// "/admin": "/keystatic",
 	},
 	vite: {
 		define: {
