@@ -23,10 +23,8 @@ export default defineConfig({
 		locales: locales,
 		routing: {
 			prefixDefaultLocale: true,
+			redirectToDefaultLocale: true,
 		},
-	},
-	redirects: {
-		// "/admin": "/keystatic",
 	},
 	vite: {
 		define: {
