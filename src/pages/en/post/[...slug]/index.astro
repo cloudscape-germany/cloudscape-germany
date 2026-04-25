@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import PostLayout from "../../../../layouts/PostLayout.astro";
 import { getCollectionStaticPaths } from "../../../../lib/collection-helpers";
+import { render } from 'astro:content';
 
 export interface Props {
 	data: CollectionEntry<"posts">;
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { data: post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <PostLayout frontmatter={post}>
