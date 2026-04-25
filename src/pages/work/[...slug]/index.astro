@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from "astro:content";
+import WorkLayout from "../../../layouts/WorkLayout.astro";
+import { getCollectionStaticPaths } from "../../../lib/collection-helpers";
+import { render } from 'astro:content';
+
+export interface Props {
+	data: CollectionEntry<"works">;
+}
+
+export async function getStaticPaths() {
+	return await getCollectionStaticPaths("works", "de");
+}
+
+const { data: work } = Astro.props;
+const { Content } = await render(work);
+---
+
+<WorkLayout frontmatter={work}>
+	<Content />
+</WorkLayout>
