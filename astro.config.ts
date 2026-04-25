@@ -11,7 +11,7 @@ import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import { defaultLocale, locales, siteTitle, siteUrl } from "./site.config";
 import node from "@astrojs/node";
-import robotsConfig from "robots.config";
+import robotsConfig from "./robots.config";
 
 // https://astro.build/config
 export default defineConfig({

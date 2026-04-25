@@ -1,4 +1,4 @@
-import { siteUrl } from "site.config";
+import { siteUrl } from "./site.config";
 
 export default {
 	host: siteUrl,
