@@ -15,7 +15,7 @@ import node from "@astrojs/node";
 // https://astro.build/config
 export default defineConfig({
 	site: siteUrl,
-	output: "static",
+	output: "hybrid",
 	adapter: node({ mode: "standalone" }),
 	compressHTML: true,
 	i18n: {
