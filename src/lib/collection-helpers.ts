@@ -17,9 +17,9 @@ export async function getCollectionStaticPaths(
 
 		if (collectionName === "pages") {
 			localizedSlug = slug[0] === "homepage" || slug[0] === "index" ? [] : slug;
-		} else {
-			localizedSlug = [lang, ...slug];
-		}
+		} // else {
+		// 	localizedSlug = [lang, ...slug];
+		// }
 
 		if (lang !== defaultLocale && !locale) {
 			localizedSlug = [lang, ...localizedSlug];
