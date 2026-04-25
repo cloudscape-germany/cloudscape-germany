@@ -12,7 +12,7 @@ export async function getCollectionStaticPaths<CollectionName extends keyof Cont
 	});
 
 	const paths = visibleItems.map((item) => {
-		const [lang, ...slug] = item.slug.split("/");
+		const [lang, ...slug] = item.id.split("/");
 		let localizedSlug = slug;
 
 		if (collectionName === "pages") {
