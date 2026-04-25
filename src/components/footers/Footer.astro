@@ -138,9 +138,9 @@ const lastPosts = posts
 									>
 										{
 											topInfoPages.map(
-												({ data: { title }, slug }) => (
+												({ data: { title }, href }) => (
 													<li>
-														<a href={slug}>
+														<a href={href}>
 															{title}
 														</a>
 													</li>
@@ -161,9 +161,9 @@ const lastPosts = posts
 								<ul class="text-white/[0.65] mb-3 list-none">
 									{
 										topServices.map(
-											({ data: { title }, slug }) => (
+											({ data: { title }, href }) => (
 												<li>
-													<a href={slug}>{title}</a>
+													<a href={href}>{title}</a>
 												</li>
 											),
 										)
@@ -181,9 +181,9 @@ const lastPosts = posts
 								<ul class="text-white/[0.65] mb-3 list-none">
 									{
 										lastPosts.map(
-											({ data: { title }, slug }) => (
+											({ data: { title }, href }) => (
 												<li>
-													<a href={slug}>{title}</a>
+													<a href={href}>{title}</a>
 												</li>
 											),
 										)
