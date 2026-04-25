@@ -38,7 +38,7 @@ const topInfoPages = pages
 		return {
 			...page,
 			lang: lang,
-			slug: translatePath(lang, `/${slug.join("/")}`),
+			href: translatePath(lang, `/${slug.join("/").replace(/\.[^.]+$/, '')}`),
 		};
 	})
 	.filter(
@@ -53,9 +53,9 @@ const topServices = services
 		return {
 			...page,
 			lang: lang,
-			slug: translatePath(
+			href: translatePath(
 				lang,
-				`/service${unlocalizedUrl(`/${page.id}`)}`,
+				`/service/${slug.join("/").replace(/\.[^.]+$/, '')}`,
 			),
 		};
 	})
@@ -68,9 +68,9 @@ const lastPosts = posts
 		return {
 			...page,
 			lang: lang,
-			slug: translatePath(
+			href: translatePath(
 				lang,
-				`/post${unlocalizedUrl(`/${page.id}`)}`,
+				`/post/${slug.join("/").replace(/\.[^.]+$/, '')}`,
 			),
 		};
 	})

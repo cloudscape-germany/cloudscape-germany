@@ -8,11 +8,11 @@ const posts = await getCollection("posts");
 
 const recentPosts = posts
 	.map((post) => {
-		const [lang, ...slug] = post.slug.split("/");
+		const [lang, ...slug] = post.id.split("/");
 		return {
 			...post,
 			lang: lang,
-			slug: post.slug.startsWith("/") ? post.slug : `/${post.slug}`,
+			href: `/${post.id.replace(/\.[^.]+$/, '')}`,
 		};
 	})
 	.filter((post) => post.lang === currentLocale)

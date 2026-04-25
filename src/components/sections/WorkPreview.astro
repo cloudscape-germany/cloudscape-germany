@@ -9,12 +9,12 @@ import { defaultLocale } from "site";
 const currentLocale = Astro.currentLocale;
 
 interface Props {
-	work: CollectionEntry<"works">;
+	work: CollectionEntry<"works"> & { href: string };
 }
 
 const { work } = Astro.props;
 
-const unlocalizedPath = unlocalizedUrl(work.slug);
+const unlocalizedPath = unlocalizedUrl(work.href);
 const localizedPath = translatePath(
 	currentLocale ?? defaultLocale,
 	`/work${unlocalizedPath}`,

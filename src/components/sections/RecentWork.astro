@@ -10,11 +10,11 @@ const works = await getCollection("works");
 
 const recentWorks = works
 	.map((work) => {
-		const [lang, ...slug] = work.slug.split("/");
+		const [lang, ...slug] = work.id.split("/");
 		return {
 			...work,
 			lang: lang,
-			slug: work.slug.startsWith("/") ? work.slug : `/${work.slug}`,
+			href: `/${work.id.replace(/\.[^.]+$/, '')}`,
 		};
 	})
 	.filter((page) => page.lang === currentLocale)
