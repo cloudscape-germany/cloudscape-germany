@@ -11,6 +11,7 @@ import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import { defaultLocale, locales, siteTitle, siteUrl } from "./site.config";
 import node from "@astrojs/node";
+import robotsConfig from "robots.config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,9 +43,7 @@ export default defineConfig({
 		react(),
 		markdoc(),
 		// keystatic(),
-		robotsTxt({
-			policy: [{ userAgent: "*", allow: "/" }],
-		}),
+		robotsTxt(robotsConfig),
 		AstroPWA({
 			mode: import.meta.env.PROD ? "production" : "development",
 			base: "/",
