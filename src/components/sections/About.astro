@@ -30,7 +30,7 @@ const { title, subtitle, content } = Astro.props;
 			</div>
 			<div class="col-span-1 row-span-1 text-3xl">
 				<p class="mb-3" set:html={subtitle} />
-				<p set:html={content} />
+				<div set:html={content} />
 			</div>
 		</div>
 	</div>
