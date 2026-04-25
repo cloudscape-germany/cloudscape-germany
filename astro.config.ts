@@ -61,7 +61,6 @@ export default defineConfig({
 				config: true,
 			},
 			workbox: {
-				navigateFallback: "/",
 				globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
 				globIgnores: ["**/_worker.js/**/*", "_worker.js"],
 				navigateFallbackDenylist: [/^\/keystatic/, /^\/api/],
