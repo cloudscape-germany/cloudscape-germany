@@ -112,7 +112,7 @@ export default defineMarkdocConfig({
 			attributes: {
 				title: { type: String, render: "title", required: true },
 				subtitle: { type: String, render: "subtitle", required: true },
-				content: { type: String, render: "content", required: true },
+				content: { type: String, render: "content", required: true, html: true },
 			},
 			render: component("./src/components/sections/About.astro"),
 		},
