@@ -1,11 +1,11 @@
-import { type ContentEntryMap, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import { type Locale, defaultLocale } from "site.config";
 
-export async function getCollectionStaticPaths<CollectionName extends keyof ContentEntryMap>(
-	collectionName: CollectionName,
+export async function getCollectionStaticPaths(
+	collectionName: string,
 	locale?: Locale,
-): Promise<PathParams<CollectionName>[]> {
-	const collection = await getCollection(collectionName);
+) {
+	const collection = await getCollection(collectionName as any);
 
 	const visibleItems = collection.filter((item) => {
 		return !item.data.hidden;
@@ -16,10 +16,8 @@ export async function getCollectionStaticPaths<CollectionName extends keyof Cont
 		let localizedSlug = slug;
 
 		if (collectionName === "pages") {
-			// For pages handle homepage slug
 			localizedSlug = slug[0] === "homepage" || slug[0] === "index" ? [] : slug;
 		} else {
-			// Non-default locales get prefixed with lang
 			localizedSlug = [lang, ...slug];
 		}
 
