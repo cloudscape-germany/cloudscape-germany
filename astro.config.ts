@@ -1,10 +1,10 @@
 import alpinejs from "@astrojs/alpinejs";
-import cloudflare from "@astrojs/cloudflare";
+// import cloudflare from "@astrojs/cloudflare";
 import markdoc from "@astrojs/markdoc";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import keystatic from "@keystatic/astro";
+// import keystatic from "@keystatic/astro";
 import AstroPWA from "@vite-pwa/astro";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
@@ -15,7 +15,7 @@ import node from "@astrojs/node";
 // https://astro.build/config
 export default defineConfig({
 	site: siteUrl,
-	output: "hybrid",
+	output: "static",
 	adapter: node({ mode: "standalone" }),
 	compressHTML: true,
 	i18n: {
@@ -43,7 +43,7 @@ export default defineConfig({
 		icon(),
 		react(),
 		markdoc(),
-		keystatic(),
+		// keystatic(),
 		robotsTxt({
 			policy: [{ userAgent: "*", allow: "/" }],
 		}),
