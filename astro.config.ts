@@ -17,7 +17,6 @@ import robotsConfig from "./robots.config";
 export default defineConfig({
 	site: siteUrl,
 	output: "static",
-	clientsClaim: true,
 	adapter: node({ mode: "standalone" }),
 	compressHTML: true,
 	i18n: {
