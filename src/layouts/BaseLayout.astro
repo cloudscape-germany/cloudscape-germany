@@ -40,9 +40,11 @@ const { seo } = Astro.props;
 		{widget.enabled && <Widget />}
 		<Footer />
 		<script>
-			document.addEventListener('astro:before-preparation', (e) => {
-				sessionStorage.setItem('scrollPos', window.scrollY.toString());
-			});
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.getRegistrations().then(registrations => {
+					registrations.forEach(reg => reg.update());
+				});
+			}
 		</script>
 	</body>
 </html>
