@@ -39,5 +39,18 @@ const { seo } = Astro.props;
 		<slot />
 		{widget.enabled && <Widget />}
 		<Footer />
+		<!--Cache Buster-->
+		<script>
+			if ('serviceWorker' in navigator && !sessionStorage.getItem('swCleared')) {
+				sessionStorage.setItem('swCleared', '1');
+				navigator.serviceWorker.getRegistrations().then(registrations => {
+					registrations.forEach(reg => reg.unregister());
+				});
+				caches.keys().then(keys => {
+					keys.forEach(key => caches.delete(key));
+				});
+				window.location.reload();
+			}
+		</script>
 	</body>
 </html>
