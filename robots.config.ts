@@ -1,73 +1,41 @@
 import { siteUrl } from "./site.config";
 
+const host = new URL(siteUrl).hostname;
+
 export default {
-	host: siteUrl,
+	host: host,
 	sitemap: [`${siteUrl}/sitemap.xml`],
 	policy: [
 		// BLOCK: AI/LLM Training Crawlers
-		{
-			userAgent: [
-				// OpenAI
-				"GPTBot",
-				"OAI-SearchBot",
-				"ChatGPT-User",
-				// Anthropic
-				"ClaudeBot",
-				"Claude-Web",
-				// Google AI
-				"GoogleOther",
-				// Meta
-				"facebookexternalhit",
-				"Facebot",
-				// Other AI Companies
-				"AppleBot",
-				"Googlebot-Extended",
-				"CCBot",
-				"PerplexityBot",
-				"DuckAssistant",
-				"YouBot",
-				"Omgili",
-				"BingBot",
-				"Slurp",
-				"ia_archiver",
-				"Exabot",
-				// Generative AI & ML
-				"anthropic-ai",
-				"cohere-ai",
-				"diffbot",
-				"Scrapy",
-				"curl",
-				"wget",
-			],
-			disallow: ["/"],
-		},
+		{ userAgent: "GPTBot", disallow: ["/"] },
+		{ userAgent: "OAI-SearchBot", disallow: ["/"] },
+		{ userAgent: "ChatGPT-User", disallow: ["/"] },
+		{ userAgent: "ClaudeBot", disallow: ["/"] },
+		{ userAgent: "Claude-Web", disallow: ["/"] },
+		{ userAgent: "GoogleOther", disallow: ["/"] },
+		{ userAgent: "facebookexternalhit", disallow: ["/"] },
+		{ userAgent: "Facebot", disallow: ["/"] },
+		{ userAgent: "AppleBot", disallow: ["/"] },
+		{ userAgent: "CCBot", disallow: ["/"] },
+		{ userAgent: "PerplexityBot", disallow: ["/"] },
+		{ userAgent: "DuckAssistant", disallow: ["/"] },
+		{ userAgent: "YouBot", disallow: ["/"] },
+		{ userAgent: "Omgili", disallow: ["/"] },
+		{ userAgent: "anthropic-ai", disallow: ["/"] },
+		{ userAgent: "cohere-ai", disallow: ["/"] },
+		{ userAgent: "diffbot", disallow: ["/"] },
+		{ userAgent: "Scrapy", disallow: ["/"] },
 		// ALLOW: Major Search Engines
-		{
-			userAgent: [
-				"Googlebot",
-				"Googlebot-Image",
-				"Googlebot-Mobile",
-				"Googlebot-News",
-				"Googlebot-Video",
-				"Bingbot",
-				"Slurp",
-				"Yandexbot",
-				"YandexImages",
-				"YandexVideo",
-				"YandexMobileBot",
-				"DuckDuckBot",
-				"Baiduspider",
-				"Sogou",
-				"Exabot",
-				"ia_archiver",
-				"Teoma",
-			],
-			allow: ["/"],
-		},
+		{ userAgent: "Googlebot", allow: ["/"] },
+		{ userAgent: "Googlebot-Image", allow: ["/"] },
+		{ userAgent: "Googlebot-Mobile", allow: ["/"] },
+		{ userAgent: "Googlebot-News", allow: ["/"] },
+		{ userAgent: "Googlebot-Video", allow: ["/"] },
+		{ userAgent: "Bingbot", allow: ["/"] },
+		{ userAgent: "DuckDuckBot", allow: ["/"] },
+		{ userAgent: "Baiduspider", allow: ["/"] },
+		{ userAgent: "Yandexbot", allow: ["/"] },
 		// BLOCK: Everything Else
-		{
-			userAgent: ["*"],
-			disallow: ["/"],
-		},
+		{ userAgent: "*", disallow: ["/"] },
 	],
 };
