@@ -37,21 +37,6 @@ const availableShare = [
 <div
 	x-data=`{
 			modalOpen: false,
-			<!--openSocialModal() {-->
-			<!--	if (navigator.share) {-->
-			<!--		navigator-->
-			<!--			.share({-->
-			<!--				title: "Condividi",-->
-			<!--				url: window.location.href,-->
-			<!--			})-->
-			<!--			.then(() => {-->
-			<!--				console.log("Grazie per la condivisione!");-->
-			<!--			})-->
-			<!--			.catch(console.error);-->
-			<!--	} else {-->
-			<!--		this.modalOpen = true;-->
-			<!-- 	}-->
-			<!-- }-->
 			openSocialModal() {
     			this.modalOpen = true;
 			}
