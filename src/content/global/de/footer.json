@@ -1,10 +1,19 @@
 {
 	"title": "Haben Sie noch Fragen?<br/> Zögern Sie nicht uns zu kontaktieren!",
-	"copyright": "© 2026 Cloudscape Germany (Kristyn)",
+	"copyright": "© 2024 Cloudscape Germany",
 	"buttons": [
 		{
 			"text": "Kontakt",
 			"url": "/contact"
 		}
-	]
+	],
+	"labels": {
+		"links": "Links",
+		"sitemap": "Sitemap",
+		"services": "Dienstleistungen",
+		"latestPosts": "Neueste Beiträge",
+		"stayInTouch": "Kontakt",
+		"privacyPolicy": "Datenschutz",
+		"imprint": "Impressum"
+	}
 }

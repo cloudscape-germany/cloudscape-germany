@@ -25,6 +25,19 @@ export default defineMarkdocConfig({
 		},
 	},
 	tags: {
+		Img: {
+			render: component("./src/components/primitives/Img.astro"),
+			attributes: {
+				src: { type: String, required: true },
+				alt: { type: String, required: true },
+				width: { type: Number },
+				height: { type: Number },
+			},
+		},
+		br: {
+			render: "br",
+			selfClosing: true,
+		},
 		Container: {
 			attributes: {
 				class: { type: String, render: "class" },

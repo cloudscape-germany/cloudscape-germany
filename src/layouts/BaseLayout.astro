@@ -39,5 +39,10 @@ const { seo } = Astro.props;
 		<slot />
 		{widget.enabled && <Widget />}
 		<Footer />
+		<script>
+			document.addEventListener('astro:before-preparation', (e) => {
+				sessionStorage.setItem('scrollPos', window.scrollY.toString());
+			});
+		</script>
 	</body>
 </html>

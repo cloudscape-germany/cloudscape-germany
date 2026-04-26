@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+
+const { src, alt, width = 800, height = 600 } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/**/*.{webp,jpeg,jpg,png,gif,svg}"
+);
+
+const image = images[src];
+if (!image) throw new Error(`Image not found: ${src}`);
+const resolved = await image();
+---
+
+<Image src={resolved.default} alt={alt} width={width} height={height} class="w-full rounded-2xl" />

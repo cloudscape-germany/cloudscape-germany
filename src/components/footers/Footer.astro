@@ -117,7 +117,7 @@ const lastPosts = posts
 						<div
 							class="items-center py-3 px-5 flex border-2 border-white border-solid rounded-3xl"
 						>
-							<div>Links</div>
+							<div>{footer.labels.links}</div>
 						</div>
 					</div>
 					<div class="mt-10">
@@ -131,7 +131,7 @@ const lastPosts = posts
 									<p
 										class="text-white border-b-2 text-lg pb-1 mb-3 border-white border-solid"
 									>
-										Sitemap
+										{footer.labels.sitemap}
 									</p>
 									<ul
 										class="text-white/[0.65] mb-3 list-none"
@@ -156,7 +156,7 @@ const lastPosts = posts
 								<p
 									class="text-white border-b-2 text-lg pb-1 mb-3 border-white border-solid"
 								>
-									Services
+									{footer.labels.services}
 								</p>
 								<ul class="text-white/[0.65] mb-3 list-none">
 									{
@@ -174,9 +174,9 @@ const lastPosts = posts
 								class="items-start flex-col flex gap-[0.63rem]"
 							>
 								<p
-									class="text-white border-b-2 text-lg pb-1 mb-3 border-white border-solid"
+									class="text-white border-b-2 text-lg pb-1 mb-3 border-white border-solid whitespace-nowrap"
 								>
-									Latest posts
+									{footer.labels.latestPosts}
 								</p>
 								<ul class="text-white/[0.65] mb-3 list-none">
 									{
@@ -201,7 +201,7 @@ const lastPosts = posts
 						<div
 							class="items-center py-3 px-5 flex border-2 border-white border-solid rounded-3xl"
 						>
-							<div>stay in touch</div>
+							<div>{footer.labels.stayInTouch}</div>
 						</div>
 					</div>
 					<div class="mt-10 text-lg">
@@ -232,6 +232,7 @@ const lastPosts = posts
 							locales.map((locale) => (
 								<a
 									href={getTranslatedUrl(locale)}
+									data-locale-switch
 									class:list={[
 										"items-center justify-start flex overflow-hidden gap-4 relative cursor-pointer",
 										isActiveLocale(locale)
@@ -251,13 +252,13 @@ const lastPosts = posts
 							><p
 								class="text-white border-b-2 cursor-pointer pb-1 border-white border-solid"
 							>
-								Privacy policy
+								{footer.labels.privacyPolicy}
 							</p></a
 						><a href={translatePath(currentLocale, '/terms')} class="inline-block max-w-full"
 							><p
 								class="text-white border-b-2 cursor-pointer pb-1 border-white border-solid"
 							>
-								Imprint
+								{footer.labels.imprint}
 							</p></a
 						>
 					</div>
